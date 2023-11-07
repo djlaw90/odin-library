@@ -53,8 +53,11 @@ body {
     background-color: var(--dark-blue) !important;
 }
 
-/* .have-read {
+.have-read-author {
     text-decoration: line-through;
     text-decoration-color: red;
+}
+
+.have-read-card-body {
     opacity: 0.5;
-} */
+}

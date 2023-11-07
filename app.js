@@ -26,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const published = document.querySelector("#book-published").value;
 
     
-    const haveReadRadio = document.querySelector('input[name="exampleRadios"]:checked');
-    const haveRead = haveReadRadio === "yes" ? true : false;
+    const haveReadRadio = document.querySelector('input[name="have-read"]:checked');
+
+    const haveRead = haveReadRadio.value === "yes" ? true : false;
 
     // Create an object to store the collected data
     const book = new Book(title, author, numPages, language, published, haveRead);
@@ -50,11 +51,11 @@ function displayBooks() {
 
   for(let i = 0; i < myLibrary.length; i++) {
           let book = myLibrary[i];
-
+          console.log(book.haveRead)
           const bookHTML = `<div class="col">
                         <div class="card" style="width: 18rem;" data-position=${i}>
-                            <div class="card-body">
-                              <h5 class="card-title book-title">${book.title}</h5>
+                            <div class="card-body ${book.haveRead ? 'have-read-card-body' : ''}">
+                              <h5 class="card-title book-title ${book.haveRead ? 'have-read-author' : ''}">${book.title}</h5>
                               <h6 class="card-subtitle mb-2 text-body-secondary book-author mb-3">${book.author}</h6>
                               <ul class="list-group">
                                 <li class="list-group-item book-pages"><b>Number of pages:</b> ${book.numPages}</li>
@@ -74,7 +75,7 @@ function displayBooks() {
   }
   //Handles switch toggles
   const toggleSwitches = document.querySelectorAll('.form-check-input');
-
+  
   toggleSwitches.forEach(toggleSwitch => {
     toggleSwitch.addEventListener('change', function() {
       const card = toggleSwitch.closest('.card');
@@ -88,6 +89,7 @@ function displayBooks() {
         cardBody.style.opacity = '0.5';
         readText.textContent = 'Read';
       } else {
+        console.log(card)
         authorName.style.textDecoration = 'none';
         cardBody.style.opacity = '1';
         readText.textContent = 'Not read';
