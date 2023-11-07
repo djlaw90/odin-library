@@ -52,3 +52,9 @@ body {
 .modal-button {
     background-color: var(--dark-blue) !important;
 }
+
+/* .have-read {
+    text-decoration: line-through;
+    text-decoration-color: red;
+    opacity: 0.5;
+} */
