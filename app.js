@@ -16,6 +16,7 @@ function Book(title, author, numPages, language, published, haveRead) {
 //Modal
 document.addEventListener("DOMContentLoaded", function () {
   
+  const form = document.querySelector("#modal-form");
   const addButton = document.querySelector("#addBookToLibrarySubmit");
 
   addButton.addEventListener("click", function () {
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (modal) {
       $(modal).modal("hide"); // Close Bootstrap modal using jQuery
     }
+    form.reset();
   });
 });
 
